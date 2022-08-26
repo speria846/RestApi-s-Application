@@ -28,17 +28,17 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful){
                     var post = response.body()
                     Toast.makeText(baseContext,"fetched ${post!!.size} posts",Toast.LENGTH_LONG).show()
-                    var adapter = PostAdapter(baseContext,post)
-                    Log.d("Tag",post.toString())
-                    binding.recyclerView.adapter  = adapter
-                    binding.recyclerView.layoutManager= LinearLayoutManager(baseContext)
+                    var PostAdapter=PostAdapter(post)
+
+
+                    binding.recyclerView.layoutManager=LinearLayoutManager(baseContext)
+                    binding.recyclerView.adapter=PostAdapter
 
 
                 }
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })
 

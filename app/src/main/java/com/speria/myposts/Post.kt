@@ -2,7 +2,7 @@ package com.speria.myposts
 
 data class Post(
     var  userId:String,
-    var id:String,
+    var id:Int,
     var title:String,
     var body:String
 
